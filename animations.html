@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./src/css/main.css">
+  <title>Laboration 4</title>
+  <link rel="icon" type="image/svg+xml" href="./bilder/favicon.svg">
+</head>
+
+<body>
+  <header>
+    <div class="header-inner">
+      <nav class="navbar">
+        <a aria-label="Gå till startsidan" class="site-logo" href="index.html" title="Startsidan">
+          <img alt="Min startsida" src="/bilder/logotyp.svg" width="250">
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Öppna navigation" aria-controls="navLinks"
+          aria-expanded="false">☰</button>
+        <ul class="nav-links" id="navLinks">
+          <li>
+            <a href="index.html">Start</a>
+          </li>
+          <li>
+            <a href="SASS.html">SASS</a>
+          </li>
+          <li>
+            <a href="animations.html" class="active">Animeringar</a>
+          </li>
+          <li>
+            <a href="#meny4">Meny 4</a>
+          </li>
+          <li>
+            <a href="meny5">Meny 5</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="container">
+      <h1>Här testar jag animationer!</h1>
+      <p>Denna laboration handlar om att testa på olika animationer på en webbplats. Och även om webbsidan mest ser ut
+        som pop-up-reklamerna som orsakade otroligt mycket virus på datorer runt om i världen för 20 år sedan, så har
+        jag lärt mig
+        mycket genom att använda mig av olika funktioner, så som @keyframes, transition och transformations. Genom att
+        hovra, klicka
+        eller ladda om sidan, kan man se de olika animationerna jag valt att göra, med inspiration från lektioner och
+        från
+        anvisad litteratur/lästips.</p>
+      <div class="element-tester">
+
+        <div class="smiley">
+          <img src="/bilder/smiley.svg" alt="En glad smiley">
+        </div>
+        <div class="smiley-dark">
+          <img src="/bilder/smileydark.svg" alt="En glad smiley med vita konturer">
+        </div>
+        <button class="click-btn">Klicka på mig!</button>
+
+        <div class="pil-upp">
+          <img src="/bilder/pilupp.webp">
+        </div>
+        <div class="pil-ner">
+          <img src="/bilder/pilner.webp">
+        </div>
+      </div>
+      <hr class="hr-linje">
+      <h2>Mina tomaters resa</h2>
+      <div class="tomater">
+
+        <div class="bild-tomat">
+          <picture>
+            <source srcset="/bilder/vecka1.webp" type="image/webp">
+            <img src="/bilder/vecka1.png" class="photo-square" alt="Lite tomatplanta">
+          </picture>
+          <span>Vecka 1</span>
+        </div>
+        <div class="bild-tomat">
+          <picture>
+            <source srcset="/bilder/vecka2.webp" type="image/webp">
+            <img src="/bilder/vecka2.PNG" class="photo-square" alt="Mellanstor tomatplanta">
+          </picture>
+          <span>Vecka 2</span>
+        </div>
+        <div class="bild-tomat">
+          <picture>
+            <source srcset="/bilder/vecka3.webp" type="image/webp">
+            <img src="/bilder/vecka3.JPEG" class="photo-square" alt="Stor tomatplanta">
+          </picture>
+          <span>Vecka 3</span>
+        </div>
+
+      </div>
+      <hr>
+      <h2>Bananen Peter</h2>
+      <div class="bananer">
+        <div>
+          <p>Detta är bananen Peter och han är vanligtvis en glad liten frukt som lever livet på denna webbplats.
+            Hans fritidsintresse är att dansa.
+            Peter har dock ett litet problem som påverkar honom i vardagen.
+            Han är mörkrädd och blir ledsen när man slår på dark mode. Då vill han inte heller dansa längre.</p>
+          <p>Peters favoritlåtar som han dansar till just nu:</p>
+          <ul>
+            <li>Sean Banan - Copacabanana</li>
+            <li>Hooja - Banan, melon, kiwi & citron</li>
+            <li>Electric Banana Band - Banankontakt</li>
+          </ul>
+        </div>
+
+        <picture>
+          <source srcset="/bilder/bananglad.webp" type="image/webp">
+          <img src="/bilder/bananglad.png" class="banan-light" alt="En glad banan med armar och ben">
+        </picture>
+
+        <picture>
+          <source srcset="/bilder/bananledsen.webp" type="image/webp">
+          <img src="/bilder/bananledsen.png" class="banan-dark" alt="En ledsen banan med armar och ben">
+        </picture>
+      </div>
+
+    </section>
+  </main>
+  <footer>
+    <h3>DT211G</h3>
+    <p>Laboration 4</p>
+    <p>Elin Ronda, 2026</p>
+  </footer>
+  <script type="module" src="./src/main.js"></script>
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+</body>
+
+</html>

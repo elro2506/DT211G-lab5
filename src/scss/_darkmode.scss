@@ -1,0 +1,70 @@
+@use "variables";
+@media (prefers-color-scheme: dark) {
+
+    //Mörkt läge
+    main {
+        background: variables.$background-dark;
+        color: variables.$text-color-dark;
+    }
+
+    .puff {
+        background-color: variables.$box-background-dark;
+        color: variables.$box-text-dark;
+        border: 1px solid variables.$box-border-dark;
+    }
+
+
+    .navbar,
+    footer {
+        background-color: variables.$text-secondary-color;
+    }
+
+    .smiley img {
+        display: none;
+    }
+
+    .smiley-dark img {
+        display: block;
+    }
+
+    .arstider {
+        background-color: variables.$puff-background-dark;
+        border: 1px solid variables.$box-border-dark;
+    }
+
+    nav a:visited {
+        color: variables.$text-primary-color;
+    }
+
+
+    a:visited {
+        color: variables.$text-secondary-color;
+    }
+
+    .btn,
+    .btn-sass {
+        background-color: variables.$button-background-primary-dark;
+        color: variables.$text-secondary-color;
+        border: 1px solid variables.$text-secondary-color;
+    }
+
+
+    .btn-meny {
+        background-color: variables.$button-background-secondary-dark;
+        color: variables.$text-secondary-color;
+        border: 1px solid variables.$text-secondary-color;
+    }
+
+    .nav-links li a:hover {
+        color: variables.$hover-dark;
+    }
+
+    .banan-light {
+        display: none;
+    }
+
+    .banan-dark {
+        display: inline-block;
+    }
+
+}

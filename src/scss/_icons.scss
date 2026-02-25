@@ -1,0 +1,63 @@
+.smiley img {
+    width: 100px;
+}
+
+.smiley-dark img {
+    display: none;
+    width: 100px;
+}
+
+.smiley img:hover,
+.smiley-dark img:hover {
+    animation: rotate 5s infinite;
+}
+
+.bild-tomat img {
+    position: relative;
+    animation: move 5s infinite, moveshadow 5s ease infinite;
+}
+
+.banan-light {
+    animation: flip 3s infinite;
+}
+
+.banan-dark {
+    animation: none;
+}
+
+.pil-upp {
+    height: 100px;
+    position: relative;
+    animation: pilupp 5s infinite;
+    margin-bottom: 40px;
+}
+
+.pil-ner {
+    height: 100px;
+    z-index: 20; //Så den hamnar ovanpå tomatbilden
+    position: relative;
+    animation: pilner 5s infinite, rotate2 5s linear infinite;
+}
+
+.bananer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.banan-light {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    display: block;
+}
+
+.banan-dark {
+    @extend .banan-light;
+    display: none;
+}
+
+.banan-text {
+    margin: 0;
+    padding: 0;
+    max-width: none;
+}

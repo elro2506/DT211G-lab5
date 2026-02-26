@@ -67,4 +67,9 @@
         display: inline-block;
     }
 
+    .diagram,
+    .diagram2 {
+        background-color: variables.$button-background-primary-light;
+    }
+
 }

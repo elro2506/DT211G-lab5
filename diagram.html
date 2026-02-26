@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Laboration 4</title>
+    <link rel="icon" type="image/svg+xml" href="./bilder/favicon.svg">
+</head>
+
+<body>
+    <header>
+        <div class="header-inner">
+            <nav class="navbar">
+                <a aria-label="Gå till startsidan" class="site-logo" href="index.html" title="Startsidan">
+                    <img alt="Min startsida" src="/bilder/logotyp.svg" width="250">
+                </a>
+                <button class="hamburger" id="hamburger" aria-label="Öppna navigation" aria-controls="navLinks"
+                    aria-expanded="false">☰</button>
+                <ul class="nav-links" id="navLinks">
+                    <li>
+                        <a href="index.html">Start</a>
+                    </li>
+                    <li>
+                        <a href="SASS.html">SASS</a>
+                    </li>
+                    <li>
+                        <a href="animations.html">Animeringar</a>
+                    </li>
+                    <li>
+                        <a href="diagram.html" class="active">Diagram</a>
+                    </li>
+                    <li>
+                        <a href="karta.html">Karta</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="container">
+            <h1>Diagram över antal förstahandssökare för kurser och program HT25</h1>
+            <br>
+            <div class="diagram-grid-stapel">
+                  <div class="diagram-text">
+                    <h2>Stapeldiagram över kurser</h2>
+                    <p>Som det går att se så har det varit ett högt antal sökande på kursen Arkiv- och informationsvetenskap GR (A),
+                        följt av Kriminologi A I och Introduktion till beteendeterapi och kognitiv beteendeterapi (KBT). Plats 4, 5 och
+                        6 i de mest populära kurserna bland förstahandssökare är Externredovisning, Påbyggnadskurs i journalistik för 
+                        akademiker på distans samt Juridisk översiktskurs.
+                    </p>
+                    <p>Håll muspekaren över en stapel för att se hur många förstahandssökare varje kurs hade!</p>
+                    </div>
+                <div class="diagram">
+                    <canvas id="myChart"></canvas>
+                  
+                </div>
+            </div>
+            <hr class="hr-diagram">
+         
+            <div class="diagram-grid-cirkel">
+                <div class="diagram2">
+                    <canvas id="myPieChart"></canvas>
+                </div>
+                <div class="diagram-text">
+                    <h2>Cirkeldiagram över program</h2>
+                    <p>Med hela 453 förstahandssökare var Webbutvecklingsprogrammet den klara favoriten, följt av Beteendevetenskapligt program och Informatik med
+                        inriktning systemutveckling. På fjärde och femte plats bland de mesta förstahandssökta programmen ligger Sjuksköterskeutbildningen och Magisterprogrammet
+                        i kvalitets- och ledarskapsutveckling.
+                    </p>
+                    <p>Håll muspekaren över en pajbit för att se hur många förstahandssökare varje program hade!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <h3>DT211G</h3>
+        <p>Laboration 5</p>
+        <p>Elin Ronda, 2026</p>
+    </footer>
+    <script type="module" src="./src/main.js"></script>
+</body>
+
+</html>

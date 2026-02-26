@@ -1,4 +1,7 @@
 "use strict";
+import "./scss/main.scss";
+
+import Chart from "chart.js/auto"; //Annars lästes diagrammet inte in ordentligt
 
 //När hela HTML-dokumntet laddats så körs loadCountries
 document.addEventListener("DOMContentLoaded", () => {
@@ -43,4 +46,125 @@ function fillList(countries) {
 
 }
 
+/**
+ * Här hämtar jag data från en extern JSON-fil för att filtrera fram de mest sökta kurserna
+ * Kurserna visas i ett stapeldiagram som är byggt med hjälp av Chart.js
+ * @typedef {Object} Kursstatistik
+ * @property {string} type är typ av utbildning, dvs kurs eller program
+ * @property {string} name är namnet på kursen eller programmet
+ * @property {string} applicantsFirstHand är antal förstahandssökare
+*/
+getBarData();
+async function getBarData() {
+  let labels = [];
+  let values = [];
+  try {
+    const response = await fetch('https://mallarmiun.github.io/Frontend-baserad-webbutveckling/Moment%205%20-%20Dynamiska%20webbplatser/statistik_sokande_ht25.json');
+    if (!response.ok) {
+      throw new Error(`Fel: ${response.status} ${response.statusText}`);
+
+    }
+    const data = await response.json();
+    const courses = data.filter(item => item.type === "Kurs");
+    courses.sort(
+      (a, b) => Number(b.applicantsFirstHand) - Number(a.applicantsFirstHand));
+    const top10 = courses.slice(0, 6);
+
+    labels = top10.map((item) => item.name);
+    values = top10.map((item) => Number(String(item.applicantsFirstHand).trim()));
+  }
+  catch (err) {
+    console.error("Fel vid hämtning av diagram", err);
+
+  }
+  const ctx = document.getElementById("myChart");
+  if (!ctx) return;
+
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: 'Förstahandssökare',
+          backgroundColor: ["#3a90cd",
+            "#48ff00",
+            "#ff3c00",
+            "#ff00b3",
+            "#00ffff",
+            "#860086",],
+          data: values,
+          borderWidth: 1
+        },],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+}
+
+
+/*----Cirkeldiagram------------------------------------------------------------------------------------------------------------------------------*/
+
+getPieData();
+async function getPieData() {
+  let labelspie = [];
+  let valuespie = [];
+  try {
+    const response = await fetch('https://mallarmiun.github.io/Frontend-baserad-webbutveckling/Moment%205%20-%20Dynamiska%20webbplatser/statistik_sokande_ht25.json');
+    if (!response.ok) {
+      throw new Error(`Fel: ${response.status} ${response.statusText}`);
+
+    }
+    const data = await response.json();
+    const courses = data.filter(item => item.type === "Program");
+    courses.sort(
+      (a, b) => Number(b.applicantsFirstHand) - Number(a.applicantsFirstHand));
+    const top10 = courses.slice(0, 5);
+
+    labelspie = top10.map((item) => item.name);
+    valuespie = top10.map((item) => Number(String(item.applicantsFirstHand).trim()));
+  }
+  catch (err) {
+    console.error("Fel vid hämtning av diagram", err);
+
+  }
+  const ctx = document.getElementById("myPieChart");
+  if (!ctx) return;
+
+
+  new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: labelspie,
+      datasets: [
+        {
+          label: "Förstahandssökare",
+          backgroundColor: ["#3a90cd",
+            "#48ff00",
+            "#ff3c00",
+            "#ff00b3",
+            "#00ffff",
+            "#860086",],
+          data: valuespie,
+          borderWidth: 1
+        },],
+    },
+   
+  });
+}
+
+/*----Hamburgermeny------------------------------------------------------------------------------------------------------------------------------*/
+
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
 

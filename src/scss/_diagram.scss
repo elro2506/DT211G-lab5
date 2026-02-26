@@ -1,0 +1,23 @@
+.diagram-grid-stapel {
+    display: grid;
+    grid-template-columns: 500px 1fr;
+    gap: 30px;
+    padding-bottom: 60px;
+}
+
+.diagram-grid-cirkel {
+    display: grid;
+    grid-template-columns: 1fr 600px;
+gap: 30px;
+padding-top: 60px;
+}
+
+.diagram {
+   height: auto;
+   
+}
+
+.diagram2 {
+    height: 400px;
+    width: auto;
+}

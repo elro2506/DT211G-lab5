@@ -215,7 +215,7 @@ form.addEventListener("submit", async function (karta) {
     }
     //Gör om från JSON till Javascript
     const data = await response.json();
-//Om ingen plats hittas så visas ett felmeddelande
+    //Om ingen plats hittas så visas ett felmeddelande
     if (data.length === 0) {
       alert("Ingen plats hittades.");
       return;
@@ -227,7 +227,7 @@ form.addEventListener("submit", async function (karta) {
      * @property {string} lat - latitud
      * @property {string} lon - longitud
      */
-//Hämtar latitud och longitud
+    //Hämtar latitud och longitud
     const lat = parseFloat(data[0].lat);
     const lon = parseFloat(data[0].lon);
 

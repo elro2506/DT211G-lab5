@@ -170,13 +170,16 @@ hamburger.addEventListener('click', () => {
 
 
 
-/*Kartan*/
+/**
+ * Startar med kartan där den första kartvyn är över Landskrona när sidan laddas
+ * OpenStreetMap är bakgrundskartan och det finns en markör
+ */
 var map = L.map('map').setView([55.8708, 12.83016], 13);
 var marker = L.marker([55.8708, 12.83016]).addTo(map);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 20,
-  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
 //Hämtar formuläret från HTML-koden där jag döpt formuläret till search
@@ -184,10 +187,16 @@ const form = document.getElementById("search");
 //Hämtar textfältet där man skriver in adressen eller staden
 const input = document.getElementById("search-city");
 
+/**
+ * Detta gäller sökformuläret för själva kartan
+ * Jag skickar en fetchförfrågan till Nominatims API
+ * När man sökt så ska markören flyttas till rätt stad
+ * @param {Submit} karta - händelsn triggas när formuläret skickas
+ */
 //Ltssnar efter när formuläret skickas
-form.addEventListener("submit", async function (e) {
+form.addEventListener("submit", async function (karta) {
   //För att förhindra att formuläret laddas om
-  e.preventDefault();
+  karta.preventDefault();
 
   //Här hämtar jag sökningen och tar bort eventuella mellanslag
   const query = input.value.trim();
@@ -195,9 +204,9 @@ form.addEventListener("submit", async function (e) {
   if (!query) return;
 
   try {
-    //Skickar en fetchförfrågan till Nominatim så att jag får koordinaterna till kartan
+    //Skickar en fetchförfrågan till Nominatim så att jag får koordinaterna till kartan. Ändrat till http så console klagat på det i publikt läge
     const response = await fetch(
-      "http://nominatim.openstreetmap.org/search?format=json&limit=5&q=" +
+      "https://nominatim.openstreetmap.org/search?format=json&limit=5&q=" +
       encodeURIComponent(query)
     );
     //Felmeddelande om något inte funkar
@@ -211,6 +220,13 @@ form.addEventListener("submit", async function (e) {
       alert("Ingen plats hittades.");
       return;
     }
+
+    /**
+     * Detta gäller latitud och longitud
+     * @typedef {Object} NominatimsResultat
+     * @property {string} lat - latitud
+     * @property {string} lon - longitud
+     */
 //Hämtar latitud och longitud
     const lat = parseFloat(data[0].lat);
     const lon = parseFloat(data[0].lon);

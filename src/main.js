@@ -155,7 +155,7 @@ async function getPieData() {
           borderWidth: 1
         },],
     },
-   
+
   });
 }
 
@@ -175,6 +175,53 @@ var map = L.map('map').setView([55.8708, 12.83016], 13);
 var marker = L.marker([55.8708, 12.83016]).addTo(map);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  maxZoom: 20,
+  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
+
+//Hämtar formuläret från HTML-koden där jag döpt formuläret till search
+const form = document.getElementById("search");
+//Hämtar textfältet där man skriver in adressen eller staden
+const input = document.getElementById("search-city");
+
+//Ltssnar efter när formuläret skickas
+form.addEventListener("submit", async function (e) {
+  //För att förhindra att formuläret laddas om
+  e.preventDefault();
+
+  //Här hämtar jag sökningen och tar bort eventuella mellanslag
+  const query = input.value.trim();
+  //Om inget skrivits i så avbryts det
+  if (!query) return;
+
+  try {
+    //Skickar en fetchförfrågan till Nominatim så att jag får koordinaterna till kartan
+    const response = await fetch(
+      "http://nominatim.openstreetmap.org/search?format=json&limit=5&q=" +
+      encodeURIComponent(query)
+    );
+    //Felmeddelande om något inte funkar
+    if (!response.ok) {
+      throw new Error("Fel vid hämtning av plats");
+    }
+    //Gör om från JSON till Javascript
+    const data = await response.json();
+//Om ingen plats hittas så visas ett felmeddelande
+    if (data.length === 0) {
+      alert("Ingen plats hittades.");
+      return;
+    }
+//Hämtar latitud och longitud
+    const lat = parseFloat(data[0].lat);
+    const lon = parseFloat(data[0].lon);
+
+    //Gör så att kartan och markörenflyttar till den nya positionen, 15 innebär zoom-graden
+    map.setView([lat, lon], 15);
+    marker.setLatLng([lat, lon]);
+
+  }
+  //Om det finns några fel så skrivs de ut i konsolen
+  catch (error) {
+    console.log(error);
+  }
+});

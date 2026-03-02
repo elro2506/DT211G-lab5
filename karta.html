@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./src/css/main.css">
-  <title>Laboration 4</title>
-  <link rel="icon" type="image/svg+xml" href="./bilder/favicon.svg">
+  <title>Laboration 5</title>
+  <link rel="icon" type="image/svg+xml" href="./bilder/favicon5.svg">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
      crossorigin=""/>
@@ -48,7 +48,12 @@
     <main>
         <section class="container">
             <h1>Karta</h1>
-            <p>Denna karta används med hjälp av Leaflet och OpenStreetMap.</p>
+            <p>Denna karta används med hjälp av Leaflet och OpenStreetMap. På ett högst partiskt sätt visas först Sveriges finaste stad upp vid markören.</p>
+            <form id="search">
+            <label for="search-city">Sök efter adress eller ort:</label>
+            <input id="search-city" type="text" placeholder="T.ex. Göteborg"/>
+            <button type="submit">Sök</button>
+            </form>
              <div id="map"></div>
         </section>
     </main>

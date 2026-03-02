@@ -21,3 +21,29 @@ padding-top: 60px;
     height: 400px;
     width: auto;
 }
+
+@media (max-width: 600px) {
+      .diagram-grid-stapel,
+      .diagram-grid-cirkel {
+      grid-template-columns: 1fr;
+gap: 20px;
+margin: 0 auto;
+padding: 20px;
+max-width: 100%;
+}
+
+.diagram canvas,
+.diagram2 canvas{
+    display: block;
+    width: 100%;
+}
+
+.diagram {
+    height: 400px;
+}
+
+.diagram2 {
+    margin: 0 auto;
+}
+
+}

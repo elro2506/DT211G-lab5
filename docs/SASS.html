@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laboration 5</title>
+  <link rel="icon" type="image/svg+xml" href="./bilder/favicon5.svg">
+  <script type="module" crossorigin src="/DT211G-lab5/assets/main-DWlmXwyD.js"></script>
+  <link rel="stylesheet" crossorigin href="/DT211G-lab5/assets/main-Bp8e4j2K.css">
+  <link rel="stylesheet" crossorigin href="/DT211G-lab5/assets/main-DKId_5OC.css">
+</head>
+
+<body>
+  <header>
+    <div class="header-inner">
+      <nav class="navbar">
+        <a aria-label="Gå till startsidan" class="site-logo" href="index.html" title="Startsidan">
+          <img alt="Min startsida" src="/DT211G-lab5/bilder/logotyp.svg" width="250">
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Öppna navigation" aria-controls="navLinks"
+          aria-expanded="false">☰</button>
+        <ul class="nav-links" id="navLinks">
+          <li>
+            <a href="index.html">Start</a>
+          </li>
+          <li>
+            <a href="SASS.html" class="active">SASS</a>
+          </li>
+          <li>
+            <a href="animations.html">Animeringar</a>
+          </li>
+          <li>
+            <a href="diagram.html">Diagram</a>
+          </li>
+          <li>
+            <a href="karta.html">Karta</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="container">
+      <h1>Vad är SASS och SCSS?</h1>
+      <p>SASS är en CSS-preprocessor som hjälper till att skriva CSS på ett nytt, och mer strukturerat sätt. SCSS är en
+        syntax av SASS
+        och ser ganska lik ut som CSS, men vissa saker skiljer sig i utseende och struktur.
+      </p>
+
+      <h2>Min implementering och användning av SASS och SCSS</h2>
+      <p>Genom att skapa denna hemsida har jag övat på olika tekniker och testat mig fram till olika lösningar. Därför
+        kan det upplevas som att
+        det inte finns en genomgående röd tråd på innehållet, då jag fokuserat mer på att lära mig olika funktioner som
+        SCSS och SASS erbjuder. Jag har provat mig fram med hjälp av föreläsningar, litteratur och sidor på internet för
+        att utforska
+        funktioner och implementera dessa.
+      </p>
+      <p>Det finns många saker man kan göra med hjälp av SASS och SCSS. Jag har använt mig av filer med filändelse
+        .scss.
+        Jag har exempelvis valt att använda if- och else-satser för bilder, där jag har två olika klasser med olika
+        värden. Jag har valt
+        att göra en klass som rund och den andra som fyrkant, med ytterst lite border-radius för rundade hörn. Se nedan
+        bilder.</p>
+      <div class="arstider">
+        <div class="bild-span">
+          <picture>
+            <source srcset="bilder/sommar.webp" type="image/webp">
+            <img src="/DT211G-lab5/assets/sommar-CNQXBPCY.jpg" class="photo-round" alt="Lila blommor">
+          </picture>
+          <span>SOMMAR</span>
+        </div>
+        <div class="bild-span">
+          <picture>
+            <source srcset="bilder/vinter.webp" type="image/webp">
+            <img src="/DT211G-lab5/assets/vinter-9QYalM8I.jpg" class="photo-square" alt="Snö på träd">
+          </picture>
+          <span>VINTER</span>
+        </div>
+      </div>
+      <h3>Funktioner</h3>
+      <p>Jag har använt variabler, där jag främst lagrat färger i
+        variabler som kan återanvändas
+        i hela koden, så att man dels slipper skriva ut färgkoden hela tiden, men även underlättar det för mig genom att
+        kunna vara säker på att
+        samma färger används och det inte finns någon skillnad i nyans och liknande.
+      </p>
+      <p>Med hjälp av nesting har jag kunnat underlätta kodningen och nästlat ihop kod för att minska upprepningar.
+        Detta har exempelvis
+        använt för länkar i navigationen, där jag haft nästlad kod för när länkar är aktiva och vid hover och utgått
+        från navigationens kod.
+      </p>
+      <p>Jag har använt mig av @mixin på bilderna nedan, där jag skapar en huvudkod för bilderna och sedan valt att ha
+        två olika former
+        på bilderna och dessa har bestämts med hjälp av @mixin. Jag har även kombinerat detta med if och else.</p>
+      <p>Jag använde @extend för att testa olika bakgrundsfärger på knapparna på startsidan. I övrigt har knapparna
+        ingen funktion utan
+        dessa finns endast för att testa @extend. I detta fall har vissa knappar en grundfärg medan övriga knappar fått
+        en annan bakgrundsfärg.
+      </p>
+      <p>För de som använder mörkt läge på sin skärm har jag aktiverat dark mode med hjälp av "@media
+        (prefers-color-scheme: dark)". Jag har
+        manuellt lagt in färger i variabler och testat mig fram vilka kontraster som kan passa bra i mörkt läge. Det är
+        främst färgerna
+        vitt, svart och grått som använts för mörkt läge.</p>
+
+
+
+      <h3>Fördelar</h3>
+      <p>I början lät SASS som ännu ett svårt moment att lära sig, men när jag var med på lektionerna och såg hur och
+        vad man kan göra, så
+        kändes det mer och mer intressant! Jag har efterfrågat några av dessa funktioner men inte riktigt vågat mig på
+        dem själv innan. Exempelvis
+        är partials något som underlättar när man har väldigt mycket kod, där man nu i stället hittar sin kod mycket
+        enklare och den
+        har en bättre struktur.
+      </p>
+      <h3>Nackdelar och svårigheter</h3>
+      <p>Det tar väldigt lång tid att sätta upp en SASS-struktur jämfört med vanlig CSS, i alla fall om man är ny på
+        detta. Om inte strukturen
+        heller är bra så tar det lite längre tid att hitta ens kod.
+      </p>
+      <p>Det är även, nu i början, inte alltid lätt att veta i vilken partial man bör lägga vilken kod. Detta är dock
+        något jag
+        tänker klarnar upp mer när man får över mer och mer på detta.</p>
+      <p>Att testa på dessa funktioner har varit roligt och givande och jag ser fram emot kommande projekt för att
+        använda kunskaperna på fler sätt.</p>
+    </section>
+  </main>
+  <footer>
+    <h3>DT211G</h3>
+    <p>Laboration 5</p>
+    <p>Elin Ronda, 2026</p>
+    <p><a href="https://elro2506.github.io/DT211G-lab5/jsdoc/">Min JSDOC</a></p>
+  </footer>
+  <script>
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboration 5</title>
+    <link rel="icon" type="image/svg+xml" href="./bilder/favicon5.svg">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script type="module" crossorigin src="/DT211G-lab5/assets/main-DWlmXwyD.js"></script>
+  <link rel="stylesheet" crossorigin href="/DT211G-lab5/assets/main-Bp8e4j2K.css">
+  <link rel="stylesheet" crossorigin href="/DT211G-lab5/assets/main-DKId_5OC.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-inner">
+            <nav class="navbar">
+                <a aria-label="Gå till startsidan" class="site-logo" href="index.html" title="Startsidan">
+                    <img alt="Min startsida" src="/DT211G-lab5/bilder/logotyp.svg" width="250">
+                </a>
+                <button class="hamburger" id="hamburger" aria-label="Öppna navigation" aria-controls="navLinks"
+                    aria-expanded="false">☰</button>
+                <ul class="nav-links" id="navLinks">
+                    <li>
+                        <a href="index.html">Start</a>
+                    </li>
+                    <li>
+                        <a href="SASS.html">SASS</a>
+                    </li>
+                    <li>
+                        <a href="animations.html">Animeringar</a>
+                    </li>
+                    <li>
+                        <a href="diagram.html">Diagram</a>
+                    </li>
+                    <li>
+                        <a href="karta.html" class="active">Karta</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="container">
+            <h1>Karta</h1>
+            <p>Denna karta används med hjälp av Leaflet och OpenStreetMap.</p>
+            <form id="search">
+                <label for="search-city">Sök efter adress eller ort:</label>
+                <input id="search-city" type="text" placeholder="T.ex. Göteborg" />
+                <button type="submit">Sök</button>
+            </form>
+            <div id="map"></div>
+        </section>
+    </main>
+    <footer>
+        <h3>DT211G</h3>
+        <p>Laboration 5</p>
+        <p>Elin Ronda, 2026</p>
+        <p><a href="https://elro2506.github.io/DT211G-lab5/jsdoc/">Min JSDOC</a></p>
+    </footer>
+</body>
+
+</html>
